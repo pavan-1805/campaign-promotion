@@ -18,10 +18,16 @@ import {
     PROMOTION_LIST_VIEW,
     PROMOTION_GRID_VIEW,
     PROMOTION_SELECT_CAMPAIGN,
+    PROMOTION_SET_MENU,
+    SET_PIN_PROMOTION,
+    SET_UN_PIN_PROMOTION,
   } from "../constants";
   
   export function addPromotion(payload) {
     return { type: ADD_PROMOTION, payload };
+  }
+  export function promotionSetMenu(payload) {
+    return { type: PROMOTION_SET_MENU, payload };
   }
   export function setActivePromotion(payload) {
     return { type: SET_ACTIVE_PROMOTIONS, payload };
@@ -32,10 +38,10 @@ import {
   export function setArchivedPromotion(payload) {
     return { type: SET_ARCHIVED_PROMOTIONS, payload };
   }
-  export function setArchivedPromotion(payload) {
+  export function setPromotionListView(payload) {
     return { type: PROMOTION_LIST_VIEW, payload };
   }
-  export function setArchivedPromotion(payload) {
+  export function setPromotionGridView(payload) {
     return { type: PROMOTION_GRID_VIEW, payload };
   }
   export function searchPromotion(payload) {
@@ -76,5 +82,11 @@ import {
   }
   export function cancelcampaign(payload) {
     return { type: CANCEL_PROMOTION, payload };
+  }
+  export function setPinPromotion(payload) {
+    return { type: SET_PIN_PROMOTION, payload };
+  }
+  export function setUnPinPromotion(payload) {
+    return { type: SET_UN_PIN_PROMOTION, payload };
   }
   

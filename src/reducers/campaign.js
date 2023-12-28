@@ -43,13 +43,13 @@ const campaign = (state = initialState, action) => {
         allCampaigns: state?.allCampaigns.map((camp) => ({
           ...camp,
           menuItems: setMenu(camp.status, [
-            "view",
-            "edit",
-            "active",
-            "inactive",
-            "archive",
-            "unarchive",
-            "changelogs",
+            "View",
+            "Edit",
+            "Active",
+            "Inactive",
+            "Archive",
+            "Unarchive",
+            "Changelogs",
           ]),
         })),
       };
