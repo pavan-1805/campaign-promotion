@@ -1,24 +1,24 @@
 import {
-  ADD_CAMPAIGN,
-  SET_CAMPAIGN_STATUS,
-  GRID_VIEW,
-  LIST_VIEW,
-  SEARCH_CAMPAIGN,
-  SET_ACTIVE_CAMPAIGNS,
-  SET_ARCHIVED_CAMPAIGNS,
-  SET_CHECK_CAMPAIGN,
-  SET_DISABLE_CAMPAIGN,
-  SET_ENABLE_CAMPAIGN,
-  SET_INACTIVE_CAMPAIGNS,
-  SET_UNCHECK_CAMPAIGN,
-  SET_CAMPAIGN_SAVE_AS_DRAFT,
-  SKIP_PROMOTION,
-  CAMPAIGN_ADD_PROMOTIONS,
-  CAMPAIGN_ADD_SURVEY,
-  CAMPAIGN_SAVE_CHANGES,
-  CANCEL_CAMPAIGN,
-  SKIP_SURVEY,
-} from "../constants";
+    ADD_CAMPAIGN,
+    SEARCH_CAMPAIGN,
+    SET_ACTIVE_CAMPAIGNS,
+    SET_ARCHIVED_CAMPAIGNS,
+    SET_CHECK_CAMPAIGN,
+    SET_ENABLE_CAMPAIGN,
+    SET_INACTIVE_CAMPAIGNS,
+    SET_DISABLE_CAMPAIGN,
+    SET_UNCHECK_CAMPAIGN,
+    SET_CAMPAIGN_STATUS,
+    SET_CAMPAIGN_SAVE_AS_DRAFT,
+    CAMPAIGN_ADD_PROMOTIONS,
+    CAMPAIGN_ADD_SURVEY,
+    CAMPAIGN_SAVE_CHANGES,
+    CANCEL_CAMPAIGN,
+    CAMPAIGN_LIST_VIEW,
+    CAMPAIGN_GRID_VIEW,
+    CAMPAIGN_SKIP_PROMOTION,
+    CAMPAIGN_SKIP_SURVEY,
+  } from "../constants";
 
 const initialState = {
   searchCampaign: "",
@@ -57,12 +57,12 @@ const campaign = (state = initialState, action) => {
           (camp) => camp?.status === "archived"
         ),
       };
-    case LIST_VIEW:
+    case CAMPAIGN_LIST_VIEW:
       return {
         ...state,
         campaignView: action?.payload,
       };
-    case GRID_VIEW:
+    case CAMPAIGN_GRID_VIEW:
       return {
         ...state,
         campaignView: action?.payload,
@@ -79,7 +79,7 @@ const campaign = (state = initialState, action) => {
           if (campaign?.id === action?.payload?.id) {
             return {
               ...campaign,
-              enableDisableStatus: true,
+              enable: true,
             };
           } else {
             return campaign;
@@ -93,7 +93,7 @@ const campaign = (state = initialState, action) => {
           if (campaign?.id === action?.payload?.id) {
             return {
               ...campaign,
-              enableDisableStatus: false,
+              enable: false,
             };
           } else {
             return campaign;
@@ -156,7 +156,7 @@ const campaign = (state = initialState, action) => {
           }
         }),
       };
-    case SKIP_PROMOTION:
+    case CAMPAIGN_SKIP_PROMOTION:
       return {
         ...state,
         allCampaigns: state?.allCampaigns?.map((campaign) => {
@@ -187,7 +187,7 @@ const campaign = (state = initialState, action) => {
           }
         }),
       };
-    case SKIP_SURVEY:
+    case CAMPAIGN_SKIP_SURVEY:
       return {
         ...state,
         allCampaigns: state?.allCampaigns?.map((campaign) => {

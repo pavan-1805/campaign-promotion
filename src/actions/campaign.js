@@ -10,12 +10,14 @@ import {
   SET_UNCHECK_CAMPAIGN,
   SET_CAMPAIGN_STATUS,
   SET_CAMPAIGN_SAVE_AS_DRAFT,
-  SKIP_PROMOTION,
   CAMPAIGN_ADD_PROMOTIONS,
-  SKIP_SURVEY,
+  CAMPAIGN_SKIP_SURVEY,
   CAMPAIGN_ADD_SURVEY,
   CAMPAIGN_SAVE_CHANGES,
   CANCEL_CAMPAIGN,
+  CAMPAIGN_LIST_VIEW,
+  CAMPAIGN_GRID_VIEW,
+  CAMPAIGN_SKIP_PROMOTION,
 } from "../constants";
 
 export function addCampaign(payload) {
@@ -31,10 +33,10 @@ export function setArchivedCampaign(payload) {
   return { type: SET_ARCHIVED_CAMPAIGNS, payload };
 }
 export function setArchivedCampaign(payload) {
-  return { type: LIST_VIEW, payload };
+  return { type: CAMPAIGN_LIST_VIEW, payload };
 }
 export function setArchivedCampaign(payload) {
-  return { type: GRID_VIEW, payload };
+  return { type: CAMPAIGN_GRID_VIEW, payload };
 }
 export function searchCampaign(payload) {
   return { type: SEARCH_CAMPAIGN, payload };
@@ -58,16 +60,13 @@ export function setCampaignSaveAsDraft(payload) {
   return { type: SET_CAMPAIGN_SAVE_AS_DRAFT, payload };
 }
 export function skipPromotion(payload) {
-  return { type: SKIP_PROMOTION, payload };
-}
-export function skipPromotion(payload) {
-  return { type: SKIP_PROMOTION, payload };
+  return { type: CAMPAIGN_SKIP_PROMOTION, payload };
 }
 export function campaignAddPromotions(payload) {
   return { type: CAMPAIGN_ADD_PROMOTIONS, payload };
 }
-export function skipSurvey(payload) {
-  return { type: SKIP_SURVEY, payload };
+export function campaignSkipSurvey(payload) {
+  return { type: CAMPAIGN_SKIP_SURVEY, payload };
 }
 export function campaignAddSurvey(payload) {
   return { type: CAMPAIGN_ADD_SURVEY, payload };
